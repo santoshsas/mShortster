@@ -51,7 +51,7 @@ app.post('/submit', isValidUrl, (req: Request, res: Response) => {
   }
 });
 // to get short url
-app.get('/:shortcode', (req, res) => {
+app.get('/:shortcode', (req: Request, res: Response): void => {
   const { shortcode } = req.params;
   if (shortcode in urlDatabase) {
     let preClicks = urlDatabase[shortcode].clicked;
@@ -66,7 +66,7 @@ app.get('/:shortcode', (req, res) => {
   }
 });
 
-app.get('/:shortcode/stats', (req, res) => {
+app.get('/:shortcode/stats', (req: Request, res: Response): void => {
     const { shortcode } = req.params;
     if (shortcode in urlDatabase) {
       res.json(urlDatabase[shortcode]);
@@ -75,7 +75,7 @@ app.get('/:shortcode/stats', (req, res) => {
     }
   });
 
-app.get('*', (req, res) => {
+app.get('*', (req:Request, res: Response): void => {
     res.status(404).json({
       error: {
         message: 'Route not found',
@@ -83,7 +83,7 @@ app.get('*', (req, res) => {
     });
   });
 
-  app.use(errorHandler)
+app.use(errorHandler)
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
