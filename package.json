@@ -1,31 +1,23 @@
 {
   "name": "mshortster",
   "version": "1.0.0",
-  "description": "Url shortner",
-  "main": "index.js",
+  "description": "Contains ui and server for url Shortner",
   "scripts": {
-    "test": "jest",
-    "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
+    "start": "concurrently \"npm run ui\" \"npm run server\"",
+    "ui": "cd web-ui && npm start",
+    "server": "cd server && npm start"
   },
   "keywords": [
-    "url",
-    "shortner"
+    "mshortster",
+    "urlshortner",
+    "url"
   ],
-  "author": "",
+  "author": "santosh.fullstack@gmail.com",
   "license": "ISC",
-  "dependencies": {
-    "@types/express": "^4.17.17",
-    "@types/node": "^20.5.7",
-    "@types/shortid": "^0.0.29",
-    "express": "^4.18.2",
-    "jest": "^29.6.4",
-    "shortid": "^2.2.16",
-    "typescript": "^5.2.2"
-  },
   "devDependencies": {
-    "@types/jest": "^29.5.4",
-    "nodemon": "^3.0.1",
-    "ts-jest": "^29.1.1",
-    "ts-node": "^10.9.1"
+    "concurrently": "^8.2.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
   }
 }
