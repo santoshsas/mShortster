@@ -7,8 +7,9 @@ This is a URL shortening app developed using Node.js, Express, and React. The ap
 - Users can submit a URL to the `/submit` endpoint and receive a unique shortcode in response.
 - Users can submit a URL with a desired shortcode, and if available, they will receive the chosen shortcode.
 - Users can access a `/<shortcode>` endpoint to be redirected to the original URL associated with the shortcode.
+- Users can access a `/<shortcode>/stats` gives the stats for shortcode.
 - Shortcodes can contain digits, uppercase letters, and lowercase letters (case insensitive).
-- Automatically allocated shortcodes are 6 characters long, while user-submitted shortcodes must be at least 4 characters long.
+- Automatically allocated shortcodes are 6 or 6+ characters long, while user-submitted shortcodes must be at least 4 characters long.
 
 ## Technologies Used
 
