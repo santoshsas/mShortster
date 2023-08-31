@@ -34,22 +34,21 @@ const urlDatabase: UrlDatabase = {};
 // Creating short url
 app.post('/submit', isValidUrl, (req: Request, res: Response) => {
   const { url, shortcode } = req.body;
-
+  const newShortUrlRecord = <Record>{
+    url,
+    createdOn: new Date(),
+    clicked: 0
+  }
   if (!shortcode) {
     const newShortcode = shortid.generate();
-    const newShortUrlRecord = <Record>{
-        url,
-        createdOn: new Date(),
-        clicked: 0
-    }
     urlDatabase[newShortcode] = newShortUrlRecord
     res.json({ shortcode: newShortcode, url: `${process.env.HOST_SHORTURL}/${newShortcode}` });
   } else {
     if (shortcode in urlDatabase) {
       res.json({});
     } else {
-      urlDatabase[shortcode] = url;
-      res.json({ shortcode });
+      urlDatabase[shortcode] = newShortUrlRecord;
+      res.json({ shortcode, url: `${process.env.HOST_SHORTURL}/${shortcode}`});
     }
   }
 });
@@ -88,6 +87,8 @@ app.get('*', (req:Request, res: Response): void => {
 
 app.use(errorHandler)
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+export default server // for unit tests
