@@ -6,6 +6,9 @@ import cors from 'cors';
 import shortid from 'shortid';
 import { errorHandler } from './middleware/errorHandler';
 import { isValidUrl } from './middleware/validateUrl'; //
+import dotenv from 'dotenv';
+
+dotenv.config()
 
 const app = express();
 const PORT = process.env.PORT || 8888;
@@ -40,7 +43,7 @@ app.post('/submit', isValidUrl, (req: Request, res: Response) => {
         clicked: 0
     }
     urlDatabase[newShortcode] = newShortUrlRecord
-    res.json({ shortcode: newShortcode });
+    res.json({ shortcode: newShortcode, url: `${process.env.HOST_SHORTURL}/${newShortcode}` });
   } else {
     if (shortcode in urlDatabase) {
       res.json({});

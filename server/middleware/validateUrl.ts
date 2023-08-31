@@ -4,6 +4,7 @@ export function isValidUrl(req: Request, res: Response, next: NextFunction): voi
     const { url } = req.body
     if (!url) {
         res.status(400).json({error: {message:`URL cannot be empty`}})
+        return
     }
     // Regular expression for URL validation
     const urlRegex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/i;
