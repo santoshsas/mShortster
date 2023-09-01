@@ -23,6 +23,10 @@ This is a URL shortening app developed using Node.js, Express, and React. The ap
 
 - Node.js and npm (Node Package Manager) should be installed on your machine.
 
+
+## Installing on local just need executing below command from root folder of project
+npm install
+
 ## Running the App
 npm start
 

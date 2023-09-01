@@ -9,7 +9,7 @@
   "scripts": {
     "start": "concurrently \"npm run ui\" \"npm run server\"",
     "ui": "cd web-ui && npm start",
-    "server": "cd server && npm start"
+    "server": "cd server && npm test --watch && npm start"
   },
   "keywords": [
     "mshortster",
