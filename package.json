@@ -2,6 +2,10 @@
   "name": "mshortster",
   "version": "1.0.0",
   "description": "Contains ui and server for url Shortner",
+  "workspaces": [
+    "server",
+    "web-ui"
+  ],
   "scripts": {
     "start": "concurrently \"npm run ui\" \"npm run server\"",
     "ui": "cd web-ui && npm start",

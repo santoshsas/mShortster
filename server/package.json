@@ -1,5 +1,5 @@
 {
-  "name": "mshortster",
+  "name": "server",
   "version": "1.0.0",
   "description": "Url shortner",
   "main": "index.js",
